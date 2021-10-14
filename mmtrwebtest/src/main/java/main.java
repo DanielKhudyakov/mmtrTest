@@ -2,7 +2,7 @@ import io.javalin.Javalin;
 import io.javalin.plugin.json.JavalinJson;
 import netscape.javascript.JSObject;
 
-public class main {
+public class Main {
     public static void main(String args[]) {
 
         Javalin app = Javalin.create().start(7000);
