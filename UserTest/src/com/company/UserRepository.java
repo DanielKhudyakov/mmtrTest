@@ -11,52 +11,52 @@ class MyException extends Exception{
 }
 
 public class UserRepository  {
-    public   ArrayList<User> Repository;
+    public   ArrayList<User> repository;
     public  UserRepository(){
-        Repository = new ArrayList<User>();
+        repository = new ArrayList<User>();
     }
-    public void AddUser(User user) throws MyException
+    public void addUser(User user) throws MyException
     {
-        if(Repository.size()!=0)
+        if(repository.size()!=0)
         {
-            for (int i = 0; i< Repository.size(); i++)
+            for (int i = 0; i< repository.size(); i++)
             {
-                if(Repository.get(i).getUserID()==user.getUserID())
+                if(repository.get(i).getUserID()==user.getUserID())
                 {
-                    throw new MyException("Пользователь с UserID="+ Repository.get(i).getUserID()+" уже существует.");
+                    throw new MyException("Пользователь с UserID="+ repository.get(i).getUserID()+" уже существует.");
                 }
             }
         }
-        Repository.add(user);
+        repository.add(user);
     }
-    public User  GetUser(int id)
+    public User getUser(int id)
     {
-        if (Repository.size() > 0)
+        if (repository.size() > 0)
         {
-            for (int i = 0; i < Repository.size(); i++)
+            for (int i = 0; i < repository.size(); i++)
             {
-                if (Repository.get(i).getUserID() == id)
+                if (repository.get(i).getUserID() == id)
                 {
-                    return Repository.get(i);
+                    return repository.get(i);
                 }
             }
         }
         return null;
     }
-    public ArrayList<User>  GetOrderedUsers()
+    public ArrayList<User> getOrderedUsers()
     {
         ArrayList<User> userArrayList=new ArrayList<User>();
         ArrayList<Integer> integerArrayList=new ArrayList<Integer>();
-        if(Repository.size()==0) {return null;}
+        if(repository.size()==0) {return null;}
 
-        for (int i = 0; i< Repository.size(); i++)
+        for (int i = 0; i< repository.size(); i++)
         {
-            integerArrayList.add(Repository.get(i).getUserID());
+            integerArrayList.add(repository.get(i).getUserID());
         }
         Collections.sort(integerArrayList);
         for (int j=0;j<integerArrayList.size();j++)
         {
-            userArrayList.add(GetUser(integerArrayList.get(j)));
+            userArrayList.add(getUser(integerArrayList.get(j)));
         }
             return userArrayList;
     }

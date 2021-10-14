@@ -2,31 +2,31 @@ package com.company;
 
 public class Main {
 
-    public static byte[] Reverse(byte [] ByteArray){
-        for (int i=0; i<ByteArray.length; i++) {
-            int Element = ByteArray[i];
-            String toBinaryStr = Integer.toBinaryString(Element);
+    public static byte[] Reverse(byte [] byteArray){
+        for (int i=0; i<byteArray.length; i++) {
+            int element = byteArray[i];
+            String toBinaryStr = Integer.toBinaryString(element);
             if(toBinaryStr.length()<8) {
                 while (toBinaryStr.length()<8){
                     toBinaryStr="0"+toBinaryStr;
                 }
             }
-                int End = toBinaryStr.length();
-                int Start = End-8;
+                int end = toBinaryStr.length();
+                int start = end-8;
                 char[] Chars=new char[8];
-                toBinaryStr.getChars(Start, End, Chars, 0);
+                toBinaryStr.getChars(start, end, Chars, 0);
                 toBinaryStr=new String(Chars);
 
-            String Str2="";
+            String str2="";
             for (int j=7;j>=0;j--) {
-                Str2+=toBinaryStr.charAt(j);
+                str2+=toBinaryStr.charAt(j);
             }
-            if (Str2.charAt(0)==1) {
-                Str2="11111111111111111111111"+Str2;
+            if (str2.charAt(0)==1) {
+                str2="11111111111111111111111"+str2;
             }
-            ByteArray[i]=(byte) Integer.parseUnsignedInt(Str2,2);
+            byteArray[i]=(byte) Integer.parseUnsignedInt(str2,2);
         }
-        return ByteArray;
+        return byteArray;
     }
 
     public static void main(String[] args) {

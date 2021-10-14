@@ -5,16 +5,16 @@ import netscape.javascript.JSObject;
 public class main {
     public static void main(String args[]) {
 
-        Javalin App = Javalin.create().start(7000);
-        App.get("/ff", ctx ->{
-            String Name = ctx.queryParam("name");
-            String Color = ctx.queryParam("color");
-            String Age = ctx.queryParam("age");
+        Javalin app = Javalin.create().start(7000);
+        app.get("/ff", ctx ->{
+            String name = ctx.queryParam("name");
+            String color = ctx.queryParam("color");
+            String age = ctx.queryParam("age");
             String radioMorning = ctx.queryParam("radiomorning");
             String radioEvening = ctx.queryParam("radioevening");
             String radioNight = ctx.queryParam("radionight");
             String тimeOfDay = "";
-            if((Name.length()!=0 )&& (radioEvening.equals("true")|| radioMorning.equals("true") || radioNight.equals("true"))){
+            if((name.length()!=0 )&& (radioEvening.equals("true")|| radioMorning.equals("true") || radioNight.equals("true"))){
                 if(radioEvening.equals("true")){
                     тimeOfDay="evening";
                 }
@@ -25,13 +25,13 @@ public class main {
                         тimeOfDay = "night";
                     }
                 }
-                if(Age.equals("true")){
-                    Age="yes";
+                if(age.equals("true")){
+                    age="yes";
                 }
                 else {
-                    Age="no";
+                    age="no";
                 }
-                ctx.result(Name+"/"+Color+"/"+Age+"/"+тimeOfDay);
+                ctx.result(name+"/"+color+"/"+age+"/"+тimeOfDay);
             }
             else {
                 ctx.result("-1");

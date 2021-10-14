@@ -1,6 +1,5 @@
 package com.company;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class Main {
@@ -8,21 +7,21 @@ public class Main {
     public static void main(String[] args) {
         try {
             UserRepository n=new UserRepository();
-            User User0=new User(12,"Ivan");
-            User User1=new User(1,"Dima");
-            User User2=new User(10,"Micha");
-            User User3=new User(120,"Kolja");
-            User User4=new User(12,"Max");
-            n.AddUser(User0);
-            n.AddUser(User1);
-            n.AddUser(User2);
-            n.AddUser(User3);
-            n.AddUser(User4);
-            ArrayList<User> g=n.GetOrderedUsers();
-            System.out.println(g.size());
+            User user0=new User(12,"Ivan");
+            User user1=new User(1,"Dima");
+            User user2=new User(10,"Micha");
+            User user3=new User(120,"Kolja");
+            User user4=new User(12,"Max");
+            n.addUser(user0);
+            n.addUser(user1);
+            n.addUser(user2);
+            n.addUser(user3);
+            n.addUser(user4);
+            ArrayList<User> users=n.getOrderedUsers();
+            System.out.println(users.size());
             for (int i=0;i<5;i++){
-               System.out.println(g.get(i).getUserID());
-               System.out.println(g.get(i).getName()) ;
+               System.out.println(users.get(i).getUserID());
+               System.out.println(users.get(i).getName()) ;
             }
         }
         catch (Exception e) {

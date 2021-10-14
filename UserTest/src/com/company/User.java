@@ -1,16 +1,16 @@
 package com.company;
 
 public class User {
-    private int UserID ;
-    private String Name;
-    public User(int Id,String Name){
-        this.UserID =Id;
-        this.Name=Name;
+    private int userID;
+    private String name;
+    public User(int id,String name){
+        this.userID =id;
+        this.name =name;
     }
     public int getUserID(){
-        return UserID;
+        return userID;
     }
     public String getName(){
-        return  Name;
+        return name;
     }
 }
