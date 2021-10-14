@@ -5,33 +5,33 @@ import netscape.javascript.JSObject;
 public class main {
     public static void main(String args[]) {
 
-        Javalin app = Javalin.create().start(7000);
-        app.get("/ff", ctx ->{
-            String name=ctx.queryParam("name");
-            String color=ctx.queryParam("color");
-            String age=ctx.queryParam("age");
-            String radiomorning=ctx.queryParam("radiomorning");
-            String radioevening=ctx.queryParam("radioevening");
-            String radionight=ctx.queryParam("radionight");
-            String time_of_day="";
-            if((name.length()!=0 )&& (radioevening.equals("true")|| radiomorning.equals("true") || radionight.equals("true"))){
-                if(radioevening.equals("true")){
-                    time_of_day="evening";
+        Javalin App = Javalin.create().start(7000);
+        App.get("/ff", ctx ->{
+            String Name = ctx.queryParam("name");
+            String Color = ctx.queryParam("color");
+            String Age = ctx.queryParam("age");
+            String radioMorning = ctx.queryParam("radiomorning");
+            String radioEvening = ctx.queryParam("radioevening");
+            String radioNight = ctx.queryParam("radionight");
+            String тimeOfDay = "";
+            if((Name.length()!=0 )&& (radioEvening.equals("true")|| radioMorning.equals("true") || radioNight.equals("true"))){
+                if(radioEvening.equals("true")){
+                    тimeOfDay="evening";
                 }
                 else {
-                    if (radiomorning.equals("true")) {
-                        time_of_day = "morning";
+                    if (radioMorning.equals("true")) {
+                        тimeOfDay = "morning";
                     } else {
-                        time_of_day = "night";
+                        тimeOfDay = "night";
                     }
                 }
-                if(age.equals("true")){
-                    age="yes";
+                if(Age.equals("true")){
+                    Age="yes";
                 }
                 else {
-                    age="no";
+                    Age="no";
                 }
-                ctx.result(name+"/"+color+"/"+age+"/"+time_of_day);
+                ctx.result(Name+"/"+Color+"/"+Age+"/"+тimeOfDay);
             }
             else {
                 ctx.result("-1");

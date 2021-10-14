@@ -2,31 +2,31 @@ package com.company;
 
 public class Main {
 
-    public static byte[] Reverse(byte [] byte_array){
-        for (int i=0; i<byte_array.length; i++) {
-            int n = byte_array[i];
-            String str = Integer.toBinaryString(n);
-            if(str.length()<8) {
-                while (str.length()<8){
-                    str="0"+str;
+    public static byte[] Reverse(byte [] ByteArray){
+        for (int i=0; i<ByteArray.length; i++) {
+            int Element = ByteArray[i];
+            String toBinaryStr = Integer.toBinaryString(Element);
+            if(toBinaryStr.length()<8) {
+                while (toBinaryStr.length()<8){
+                    toBinaryStr="0"+toBinaryStr;
                 }
             }
-                int end = str.length();
-                int start = end-8;
-                char[] dst=new char[8];
-                str.getChars(start, end, dst, 0);
-                str=new String(dst);
+                int End = toBinaryStr.length();
+                int Start = End-8;
+                char[] Chars=new char[8];
+                toBinaryStr.getChars(Start, End, Chars, 0);
+                toBinaryStr=new String(Chars);
 
-            String str2="";
+            String Str2="";
             for (int j=7;j>=0;j--) {
-                str2+=str.charAt(j);
+                Str2+=toBinaryStr.charAt(j);
             }
-            if (str2.charAt(0)==1) {
-                str2="11111111111111111111111"+str2;
+            if (Str2.charAt(0)==1) {
+                Str2="11111111111111111111111"+Str2;
             }
-            byte_array[i]=(byte) Integer.parseUnsignedInt(str2,2);
+            ByteArray[i]=(byte) Integer.parseUnsignedInt(Str2,2);
         }
-        return byte_array;
+        return ByteArray;
     }
 
     public static void main(String[] args) {

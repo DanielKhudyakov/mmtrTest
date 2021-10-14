@@ -1,46 +1,43 @@
 package com.company;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 
 class MyException extends Exception{
-    public MyException (String message){
+    public MyException (String Message){
 
-        super(message);
+        super(Message);
     }
 }
 
 public class UserRepository  {
-    private Object mutex = new Object();
-    public   ArrayList<User> repository ;
+    public   ArrayList<User> Repository;
     public  UserRepository(){
-        repository= new ArrayList<User>();
+        Repository = new ArrayList<User>();
     }
     public void AddUser(User user) throws MyException
     {
-        if(repository.size()!=0)
+        if(Repository.size()!=0)
         {
-            for (int i=0;i<repository.size();i++)
+            for (int i = 0; i< Repository.size(); i++)
             {
-                if(repository.get(i).getUserID()==user.getUserID())
+                if(Repository.get(i).getUserID()==user.getUserID())
                 {
-                    throw new MyException("Пользователь с UserID="+repository.get(i).getUserID()+" уже существует.");
+                    throw new MyException("Пользователь с UserID="+ Repository.get(i).getUserID()+" уже существует.");
                 }
             }
         }
-        repository.add(user);
+        Repository.add(user);
     }
     public User  GetUser(int id)
     {
-        if (repository.size() > 0)
+        if (Repository.size() > 0)
         {
-            for (int i = 0; i < repository.size(); i++)
+            for (int i = 0; i < Repository.size(); i++)
             {
-                if (repository.get(i).getUserID() == id)
+                if (Repository.get(i).getUserID() == id)
                 {
-                    return repository.get(i);
+                    return Repository.get(i);
                 }
             }
         }
@@ -48,20 +45,20 @@ public class UserRepository  {
     }
     public ArrayList<User>  GetOrderedUsers()
     {
-        ArrayList<User> arr=new ArrayList<User>();
-        ArrayList<Integer> newRep=new ArrayList<Integer>();
-        if(repository.size()==0) {return null;}
+        ArrayList<User> userArrayList=new ArrayList<User>();
+        ArrayList<Integer> integerArrayList=new ArrayList<Integer>();
+        if(Repository.size()==0) {return null;}
 
-        for (int i=0;i<repository.size();i++)
+        for (int i = 0; i< Repository.size(); i++)
         {
-            newRep.add(repository.get(i).getUserID());
+            integerArrayList.add(Repository.get(i).getUserID());
         }
-        Collections.sort(newRep);
-        for (int j=0;j<newRep.size();j++)
+        Collections.sort(integerArrayList);
+        for (int j=0;j<integerArrayList.size();j++)
         {
-            arr.add(GetUser(newRep.get(j)));
+            userArrayList.add(GetUser(integerArrayList.get(j)));
         }
-            return arr;
+            return userArrayList;
     }
 
 }
